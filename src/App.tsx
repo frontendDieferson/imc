@@ -4,15 +4,17 @@ import poweredImage from './assets/powered.png'
 
 import {GridItem} from './components/GridItem';
 
-import { levels, calculateImc } from './helpers/imc'
+import { levels, calculateImc, Level } from './helpers/imc'
 
 const App = () => {
  const [heightField, setHeightField] = useState<number>(0)
  const [weightField, setWeightField] = useState<number>(0)
+ const [toShow, setToShow] = useState<Level | null>(null);
+
 
  const handleCalculateButton = () => {
    if (heightField && weightField) {
-
+    setToShow(calculateImc(heightField, weightField));
    } else {
      alert('Digite todos os Campos')
    }
@@ -50,12 +52,21 @@ const App = () => {
         
         </div>
         <div className={styles.rightSide}>
+
+        {!toShow &&
           <div className={styles.grid}>
             {levels.map((item, key) =>(
               <GridItem key={key} item={item} />
-
-            ))}
+              
+              ))}
           </div>
+        }
+        {toShow &&
+          <div className={styles.rightBig}>
+            <div className={styles.rightArrow}></div>
+            <GridItem item={toShow} />
+          </div>
+        }
         </div>
       </div>
     </div>
