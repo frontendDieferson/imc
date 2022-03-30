@@ -111,7 +111,7 @@ body {
 
 .footer {
     padding: 5px;
-    margin-top: 467px;
+    margin-top: 410px;
     width: 100%;
     align-items: center;
     flex-shrink: 0;
@@ -124,8 +124,13 @@ body {
 }
 
 @media (max-width: 770px) {
+
     header {
         padding: 0 20px;
+    }
+    .headerContainer {
+        width: 140px;
+        margin-top: 10px;
     }
     .container {
         padding: 0 20px;
