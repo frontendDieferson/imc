@@ -79,6 +79,9 @@ const App = () => {
         }
         </div>
       </div>
+      <div className={styles.footer}>
+        <p>Desenvolvido com ❤️ por Dieferson Soares</p>
+      </div>
     </div>
   )
 }
